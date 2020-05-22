@@ -1,0 +1,48 @@
+[1mdiff --git a/inicio.java b/inicio.java[m
+[1mindex e69de29..c03d97e 100644[m
+[1m--- a/inicio.java[m
+[1m+++ b/inicio.java[m
+[36m@@ -0,0 +1,42 @@[m
+[32m+[m[32mimport javax.swing.*;[m
+[32m+[m[32mimport java.io.*;[m
+[32m+[m[32mimport java.net.*;[m
+[32m+[m[32mimport java.awt.event.*;[m
+[32m+[m
+[32m+[m[32mpublic class CargaCarpetaImagen implements ActionListener{[m
+[32m+[m[32m  JFrame f;[m
+[32m+[m[32m  String listaImg[];[m
+[32m+[m[32m  JLabel visor;[m
+[32m+[m[32m  File archi;[m
+[32m+[m[32m  int i;[m
+[32m+[m
+[32m+[m[32m  public CargaCarpetaImagen() {[m[41m    [m
+[32m+[m[32m    f=new JFrame();[m
+[32m+[m[32m    try{[m
+[32m+[m[32m      archi=new File((getClass().getResource("\\images\\")).toURI());[m
+[32m+[m[32m    }catch(URISyntaxException e){ System.out.println("Error en la ruta de la imagen");}[m
+[32m+[m[32m    if(!archi.exists())[m
+[32m+[m[32m      JOptionPane.showMessageDialog(f, "Carpeta de imagenes inexistente!", "Lo sentimos :(", JOptionPane.ERROR_MESSAGE);[m
+[32m+[m[32m    else{[m[41m [m
+[32m+[m[32m      listaImg= archi.list();[m
+[32m+[m[32m    if(listaImg!=null){[m
+[32m+[m[32m      i=0;[m
+[32m+[m[32m      visor=new JLabel(new ImageIcon(getClass().getResource("images\\"+listaImg[i])));[m
+[32m+[m[32m      f.add(visor);[m
+[32m+[m[32m      visor.addActionListener(this);[m[41m  [m
+[32m+[m[32m    }[m
+[32m+[m[32m    f.setSize(600,600);[m
+[32m+[m[32m    f.setVisible(true);[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m   public void actionPerformed(ActionEvent e){[m
+[32m+[m[32m      i++;[m
+[32m+[m[32m      if(i== listaImg.length) i=0;[m
+[32m+[m[32m      visor.setIcon(new ImageIcon(getClass().getResource("images\\"+listaImg[i])));[m
+[32m+[m[32m      visor.updateUI();[m
+[32m+[m[32m    }[m
+[32m+[m[32m   public static void main(String args[]){[m
+[32m+[m[32m     new CargaCarpetaImagen();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
