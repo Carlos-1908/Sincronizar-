@@ -1,5 +1,2 @@
-import java.io.*;
-
-public class Hola{
-
+public class contacto{
 }

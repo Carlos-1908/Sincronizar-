@@ -4,7 +4,7 @@ import java.net.*;
 import java.awt.event.*;
 
 public class CargaCarpetaImagen implements ActionListener{
-  JFrame frame;
+  JFrame f;
   String listaImg[];
   JLabel visor;
   File archi;
@@ -23,7 +23,7 @@ public class CargaCarpetaImagen implements ActionListener{
       i=0;
       visor=new JLabel(new ImageIcon(getClass().getResource("images\\"+listaImg[i])));
       f.add(visor);
-      visor.addActionListener(this);  
+      visor.addMouseListener((MouseListener) this);
     }
     f.setSize(600,600);
     f.setVisible(true);
